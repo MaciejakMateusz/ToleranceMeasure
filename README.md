@@ -73,11 +73,6 @@ Enter the measurements, enter '0' after the last measurement to confirm:
 ```
 
 After entering 0, the program will print data about your inputs.
-It will also ask if you want to measure something else. Simply choose y/n:
-
-```bash
-Do you want to restart? Enter y/n:
-```
 
 **Enjoy!**
 
