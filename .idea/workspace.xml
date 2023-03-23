@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Commit with finished console version 1.0" />
+    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Commit with finished console version 1.0">
+      <change afterPath="$PROJECT_DIR$/src/measure/MeasureMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/measure/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/measure/ConsoleColors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/measure/MeasureEN.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,22 +43,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mateusz/Projekty własne/ToleranceMeasure&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/mateusz/Kurs Java CodersLab/ONL_JEE_W_21_OOP_Praca_Domowa",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Application.measure.MeasureEN">
+}]]></component>
+  <component name="RunManager" selected="Application.MeasureMain">
     <configuration name="MeasureEN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="java.MeasureEN" />
       <module name="ToleranceMeasure" />
@@ -58,8 +72,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="measure.MeasureEN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="measure.MeasureEN" />
+    <configuration name="MeasureEN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="java.MeasureEN" />
+      <module name="ToleranceMeasure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="measure.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MeasureMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="measure.MeasureMain" />
       <module name="ToleranceMeasure" />
       <extension name="coverage">
         <pattern>
@@ -73,8 +100,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.measure.MeasureEN" />
-        <item itemvalue="Application.MeasureEN" />
+        <item itemvalue="Application.MeasureMain" />
       </list>
     </recent_temporary>
   </component>
@@ -94,7 +120,18 @@
       <workItem from="1677862776485" duration="1386000" />
       <workItem from="1677913758290" duration="174000" />
       <workItem from="1677916176179" duration="44000" />
-      <workItem from="1677934013384" duration="1011000" />
+      <workItem from="1677934013384" duration="1421000" />
+      <workItem from="1677941450993" duration="10000" />
+      <workItem from="1678193796267" duration="196000" />
+      <workItem from="1678730605158" duration="3125000" />
+      <workItem from="1678768595452" duration="1455000" />
+      <workItem from="1678899140723" duration="2199000" />
+      <workItem from="1678982178295" duration="5053000" />
+      <workItem from="1679214400439" duration="857000" />
+      <workItem from="1679233430589" duration="5053000" />
+      <workItem from="1679251211045" duration="2126000" />
+      <workItem from="1679544589512" duration="3635000" />
+      <workItem from="1679586819792" duration="7420000" />
     </task>
     <task id="LOCAL-00001" summary="Commit with finished console version 1.0">
       <created>1677934896704</created>
@@ -103,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677934896704</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Commit with finished console version 1.0">
+      <created>1677935318418</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1677935318418</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
