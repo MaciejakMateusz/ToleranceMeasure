@@ -69,7 +69,9 @@ public class MeasureMain {
 
         System.out.println(product + "\n");
 
-        System.out.println("Enter products measurements." + "\n" + Color.GREEN + "0" + Color.RESET + " - to confirm your measurements" + "\n" + Color.GREEN + "-1" + Color.RESET + " - to delete last measurement (undo)");
+        System.out.println("Enter products measurements."
+                + "\n" + Color.GREEN + "0" + Color.RESET + " - to confirm your measurements"
+                + "\n" + Color.GREEN + "-1" + Color.RESET + " - to delete last measurement (undo)");
 
         List<BigDecimal> allMeasures = productMeasures();
 
@@ -110,6 +112,18 @@ public class MeasureMain {
         System.out.println(Color.BLUE + "Smaller than " + (productLength.add(negTolerance)) + "mm" + ": " + Color.RESET + measuresOutsideNegative + " piece(s)");
         System.out.println();
 
+        String productName = product.getName();
+        productDataWriter(productName,
+                productLength,
+                posTolerance,
+                negTolerance,
+                measuresBad,
+                measuresGood,
+                avg,
+                measuresOutsidePositive,
+                measuresOutsideNegative,
+                allMeasures);
+
         Collections.sort(allMeasures);
 
         System.out.println(Color.BLUE + "Biggest measurement: " + Color.RESET + allMeasures.get(allMeasures.size() - 1) + "mm");
@@ -121,18 +135,6 @@ public class MeasureMain {
         System.out.println();
         System.out.println(Color.BLUE + "Measurements sorted ascending: " + Color.RESET + allMeasures);
 
-        String productName = product.getName();
-        productDataWriter(productName,
-                productLength,
-                posTolerance,
-                negTolerance,
-                measuresBad,
-                measuresGood,
-                avg,
-                measuresOutsidePositive,
-                measuresOutsideNegative,
-                allMeasures,
-                biggestDifference);
 
         System.out.println("\n");
         mainMenu();
@@ -296,8 +298,7 @@ public class MeasureMain {
                                             BigDecimal avg,
                                             BigDecimal measuresOutsidePositive,
                                             BigDecimal measuresOutsideNegative,
-                                            List<BigDecimal> allMeasures,
-                                            BigDecimal biggestDifference) {
+                                            List<BigDecimal> allMeasures) {
 
         List<String> outList = new ArrayList<>();
         outList.add("PRODUCT NAME = " +  productName);
@@ -317,6 +318,8 @@ public class MeasureMain {
         outList.add("");
         outList.add("Biggest measurement: " + allMeasures.get(allMeasures.size() - 1) + "mm");
         outList.add("Smallest measurement: " + allMeasures.get(0) + "mm");
+        Collections.sort(allMeasures);
+        BigDecimal biggestDifference = allMeasures.get(allMeasures.size() - 1).subtract(allMeasures.get(0));
         outList.add("Difference between the smallest and the biggest measurement: " + biggestDifference + "mm");
         outList.add("");
         outList.add("Measurements sorted ascending: " + allMeasures);
