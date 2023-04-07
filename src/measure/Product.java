@@ -1,8 +1,8 @@
 package measure;
 
-import measure.Color;
-
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Product {
 
@@ -10,37 +10,46 @@ public class Product {
     private BigDecimal posTolerance;
     private BigDecimal negTolerance;
     private String name;
+    private static final List<BigDecimal> list = new ArrayList<>();
 
-    protected BigDecimal getLength() {
+    public BigDecimal getLength() {
         return this.length;
     }
 
-    protected void setLength(BigDecimal productLength) {
+    public void setLength(BigDecimal productLength) {
         this.length = productLength;
     }
 
-    protected BigDecimal getPosTolerance() {
+    public BigDecimal getPosTolerance() {
         return this.posTolerance;
     }
 
-    protected void setPosTolerance(BigDecimal posTolerance) {
+    public void setPosTolerance(BigDecimal posTolerance) {
         this.posTolerance = posTolerance;
     }
 
-    protected BigDecimal getNegTolerance() {
+    public BigDecimal getNegTolerance() {
         return this.negTolerance;
     }
 
-    protected void setNegTolerance(BigDecimal negTolerance) {
+    public void setNegTolerance(BigDecimal negTolerance) {
         this.negTolerance = negTolerance;
     }
 
-    protected String getName() {
+    public String getName() {
         return this.name;
     }
 
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
+    }
+
+    protected List<BigDecimal> getList() {
+        return list;
+    }
+
+    protected void addToList(BigDecimal input) {
+        list.add(input);
     }
 
     @Override

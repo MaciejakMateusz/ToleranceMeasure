@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Updated program functionality:&#10;- deleting a measurement while measuring is now possible&#10;- program asks for confirmation&#10;- additional validation of user inputs&#10;&#10;Fixed bugs and upgraded code to be more OOP.">
+    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Sorting list bug fixed">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToleranceMeasure.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/DbUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/ProductDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/Queries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/productData.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/measure/MeasureMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/MeasureMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/measure/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +32,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -40,41 +48,61 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="2MSx75W9k9VGbVdOq6cXqQrAPsU" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mateusz/Kurs Java CodersLab/ONL_JEE_W_21_OOP_Praca_Domowa&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mateusz/Projekty własne/ToleranceMeasure&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="measure" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.MeasureMain">
+    <configuration name="Create" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="measure.Create" />
+      <module name="ToleranceMeasure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MeasureEN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="java.MeasureEN" />
       <module name="ToleranceMeasure" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="measure.*" />
+          <option name="PATTERN" value="dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,7 +128,20 @@
       <module name="ToleranceMeasure" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="measure.*" />
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.ProductDao" />
+      <module name="ToleranceMeasure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,6 +152,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MeasureMain" />
+        <item itemvalue="Application.ProductDao" />
+        <item itemvalue="Application.Create" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +184,11 @@
       <workItem from="1679233430589" duration="5053000" />
       <workItem from="1679251211045" duration="2126000" />
       <workItem from="1679544589512" duration="3635000" />
-      <workItem from="1679586819792" duration="9121000" />
+      <workItem from="1679586819792" duration="10651000" />
+      <workItem from="1679672929587" duration="2492000" />
+      <workItem from="1680353998754" duration="1148000" />
+      <workItem from="1680771917378" duration="10564000" />
+      <workItem from="1680821858721" duration="7637000" />
     </task>
     <task id="LOCAL-00001" summary="Commit with finished console version 1.0">
       <created>1677934896704</created>
@@ -164,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679598542355</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Sorting list bug fixed">
+      <created>1679630311124</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679630311124</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,8 +248,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Commit with finished console version 1.0" />
     <MESSAGE value="Updated program functionality:&#10;- deleting a measurement while measuring is now possible&#10;- program asks for confirmation&#10;- additional validation of user inputs&#10;&#10;Fixed bugs and upgraded code to be more OOP." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated program functionality:&#10;- deleting a measurement while measuring is now possible&#10;- program asks for confirmation&#10;- additional validation of user inputs&#10;&#10;Fixed bugs and upgraded code to be more OOP." />
+    <MESSAGE value="Sorting list bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sorting list bug fixed" />
   </component>
 </project>

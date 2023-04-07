@@ -1,5 +1,8 @@
 package measure;
 
+import dao.ProductDao;
+import dao.Queries;
+
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,63 +14,110 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class MeasureMain {
+public class MeasureMain extends Queries {
 
-    protected static Product product = new Product();
-    protected static Path path = Paths.get("productData.txt");
-    protected static final String confirmation = "Do you want to confirm the measurements? " + "Enter " + Color.GREEN + "(y/n)" + Color.RESET + "\n" + "Current measurements: ";
-    protected static final String undoConfirmation = Color.BLUE + "Successfully deleted the last measurement. Current measurements are: " + "\n";
+    protected static final Product PRODUCT = new Product();
+    protected static final Path PATH = Paths.get("productData.txt");
+    protected static final String confirmation =
+            "Do you want to confirm the measurements? "
+                    + "Enter " + Color.GREEN + "(y/n)" + Color.RESET
+                    + "\n" + "Current measurements: ";
+    protected static final String undoConfirmation =
+            Color.BLUE + "Successfully deleted the last measurement. Current measurements are: " + "\n";
 
     public static void main(String[] args) {
-        System.out.print(Color.GREEN + "Welcome!" + Color.RESET + "\n" + "\n");
         mainMenu();
     }
 
     protected static void mainMenu () {
 
+        System.out.println();
+        System.out.println(Color.BLUE + "Main Menu" + Color.RESET);
+        System.out.println("Enter one of the following commands: ");
+        System.out.println(Color.GREEN_BOLD + "start" + Color.RESET + " - start the program and manually enter dimensions");
+        System.out.println(Color.GREEN_BOLD + "select" + Color.RESET + " - select created product preset");
+        System.out.println(Color.GREEN_BOLD + "manager" + Color.RESET + " - manage your products");
+        System.out.println(Color.GREEN_BOLD + "last" + Color.RESET + " - show data from last measurement session");
+        System.out.println(Color.GREEN_BOLD + "exit" + Color.RESET + " - exit the program" + "\n");
+
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println();
-            System.out.print(Color.BLUE +"Main Menu" + Color.RESET + "\n");
-            System.out.println("Enter one of the following commands: ");
-            System.out.println(Color.GREEN_BOLD + "start" + Color.RESET + " - to start the program");
-            System.out.println(Color.GREEN_BOLD + "last" + Color.RESET + " - to show data from last measurement session");
-            System.out.println(Color.GREEN_BOLD + "exit" + Color.RESET + " - to exit the program"  + "\n");
 
+            boolean correctChoice = false;
+            while (!correctChoice) {
+                String choice = scanner.nextLine();
+            switch (choice) {
+                case "start":
+                    System.out.println();
+                    nameSetter();
+                    lengthSetter();
+                    tolerancesSetter();
+                    measureProgram();
+                    correctChoice = true;
+                    break;
+                case "select":
+                    System.out.println();
+                    ProductDao.readId();
+                    correctChoice = true;
+                    break;
+                case "manager":
+                    subMenu();
+                    break;
+                case "last":
+                    System.out.println();
+                    productDataReader();
+                    correctChoice = true;
+                    break;
+                case "exit":
+                    System.out.println(Color.BLUE + "Program ended, thanks for using ToleranceMeasure." + Color.RESET);
+                    System.exit(0);
+                default:
+                    System.out.println(Color.RED + "Wrong command, try again." + Color.RESET);
+                    break;
+            }
+            }
+        }
+    }
 
-               String choice = scanner.nextLine();
-               while (!choice.equals("start") && !choice.equals("last") && !choice.equals("exit") ) {
-                   System.out.println(Color.RED + "Wrong command, try again." + Color.RESET);
-                   choice = scanner.nextLine();
-               }
+    protected static void subMenu() {
+        System.out.println(Color.BLUE + "Product manager" + Color.RESET);
+        System.out.println(Color.GREEN_BOLD + "create" + Color.RESET + " - create new product");
+        System.out.println(Color.GREEN_BOLD + "delete" + Color.RESET + " - delete existing product");
+        System.out.println(Color.GREEN_BOLD + "back" + Color.RESET + " - main menu" + "\n");
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            boolean correctChoice = false;
+            while(!correctChoice) {
+                String choice = scanner.nextLine();
                 switch (choice) {
-
-                    case "start":
+                    case "create":
                         System.out.println();
-                        setName();
-                        measureProgram();
+                        ProductDao.createProduct();
+                        correctChoice = true;
                         break;
-                    case "last":
+                    case "delete":
                         System.out.println();
-                        productDataReader();
+                        ProductDao.deleteProduct();
+                        correctChoice = true;
                         break;
-                    case "exit":
-                        System.out.println(Color.BLUE + "Program ended, thanks for using ToleranceMeasure." + Color.RESET);
-                        System.exit(0);
+                    case "back":
+                        mainMenu();
+                        correctChoice = true;
+                        break;
+                    default:
+                        System.out.println(Color.RED + "Wrong command, try again." + Color.RESET);
+                        break;
                 }
-
+            }
         }
     }
 
     protected static void measureProgram () {
 
-        setLength();
-        BigDecimal productLength = product.getLength();
+        BigDecimal productLength = PRODUCT.getLength();
+        BigDecimal posTolerance = PRODUCT.getPosTolerance();
+        BigDecimal negTolerance = PRODUCT.getNegTolerance();
 
-        setTolerances();
-        BigDecimal posTolerance = product.getPosTolerance();
-        BigDecimal negTolerance = product.getNegTolerance();
-
-        System.out.println(product + "\n");
+        System.out.println(PRODUCT + "\n");
 
         System.out.println("Enter products measurements."
                 + "\n" + Color.GREEN + "0" + Color.RESET + " - to confirm your measurements"
@@ -112,7 +162,7 @@ public class MeasureMain {
         System.out.println(Color.BLUE + "Smaller than " + (productLength.add(negTolerance)) + "mm" + ": " + Color.RESET + measuresOutsideNegative + " piece(s)");
         System.out.println();
 
-        String productName = product.getName();
+        String productName = PRODUCT.getName();
         productDataWriter(productName,
                 productLength,
                 posTolerance,
@@ -141,7 +191,15 @@ public class MeasureMain {
 
     }
 
-    protected static void setLength() {
+    protected static void nameSetter() {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter product name: ");
+        PRODUCT.setName(scanner.nextLine());
+
+    }
+
+    protected static void lengthSetter() {
 
         Scanner scanner = new Scanner(System.in);
         boolean correctLength = false;
@@ -159,19 +217,19 @@ public class MeasureMain {
                 System.out.println(Color.RED + "Product length cannot be equal 0" + Color.RESET);
                 continue;
             }
-            product.setLength(tmpLength);
+            PRODUCT.setLength(tmpLength);
             correctLength = true;
         }
 
     }
 
-    protected static void setTolerances() {
+    protected static void tolerancesSetter() {
 
         boolean correctTolerances = false;
         while (!correctTolerances) {
-            setPosTolerance();
-            setNegTolerance();
-            if (product.getPosTolerance().compareTo(BigDecimal.ZERO) == 0 && product.getNegTolerance().compareTo(BigDecimal.ZERO) == 0) {
+            posToleranceSetter_Validator();
+            NegToleranceSetter_Validator();
+            if (PRODUCT.getPosTolerance().compareTo(BigDecimal.ZERO) == 0 && PRODUCT.getNegTolerance().compareTo(BigDecimal.ZERO) == 0) {
                 System.out.println(Color.RED + "Positive and negative tolerance equals 0! " + Color.RESET + "Enter the right values.");
                 continue;
             }
@@ -180,7 +238,7 @@ public class MeasureMain {
 
     }
 
-    protected static void setPosTolerance() {
+    private static void posToleranceSetter_Validator() {
 
         Scanner scanner = new Scanner(System.in);
         boolean correctPosTolerance = false;
@@ -194,20 +252,20 @@ public class MeasureMain {
             if (tmpPosTol.compareTo(BigDecimal.ZERO) < 0) {
                 System.out.println(Color.RED + "Positive tolerance cannot be below zero, try again." + Color.RESET);
                 continue;
-            } else if (tmpPosTol.compareTo(product.getLength()) > 0) {
+            } else if (tmpPosTol.compareTo(PRODUCT.getLength()) > 0) {
                 System.out.println(Color.RED + "Positive tolerance cannot be bigger than product length." + Color.RESET);
                 continue;
-            } else if (tmpPosTol.compareTo(product.getLength()) == 0) {
+            } else if (tmpPosTol.compareTo(PRODUCT.getLength()) == 0) {
                 System.out.println(Color.RED + "Positive tolerance cannot be equal product length." + Color.RESET);
                 continue;
             }
-            product.setPosTolerance(tmpPosTol);
+            PRODUCT.setPosTolerance(tmpPosTol);
             correctPosTolerance = true;
         }
 
     }
 
-    protected static void setNegTolerance() {
+    private static void NegToleranceSetter_Validator() {
 
         Scanner scanner = new Scanner(System.in);
         boolean correctNegTolerance = false;
@@ -221,31 +279,22 @@ public class MeasureMain {
             if (tmpNegTol.compareTo(BigDecimal.ZERO) > 0) {
                 System.out.println(Color.RED + "Negative tolerance cannot be over zero, try again." + Color.RESET);
                 continue;
-            } else if (tmpNegTol.compareTo(product.getLength().negate()) < 0) {
+            } else if (tmpNegTol.compareTo(PRODUCT.getLength().negate()) < 0) {
                 System.out.println(Color.RED + "Negative tolerance cannot be smaller than negative product length." + Color.RESET);
                 continue;
-            } else if (tmpNegTol.compareTo(product.getLength().negate()) == 0) {
+            } else if (tmpNegTol.compareTo(PRODUCT.getLength().negate()) == 0) {
                 System.out.println(Color.RED + "Negative tolerance cannot be equal negative product length." + Color.RESET);
                 continue;
             }
-            product.setNegTolerance(tmpNegTol);
+            PRODUCT.setNegTolerance(tmpNegTol);
             correctNegTolerance = true;
         }
-
-    }
-
-    protected static void setName() {
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter product name: ");
-        product.setName(scanner.nextLine());
 
     }
 
     protected static List<BigDecimal> productMeasures() {
 
         Scanner scanner = new Scanner(System.in);
-        List<BigDecimal> list = new ArrayList<>();
         boolean measurementsConfirmed = false;
 
         while (!measurementsConfirmed) {
@@ -254,8 +303,8 @@ public class MeasureMain {
                 System.out.print(Color.RED + "Wrong measurement, try again: " + Color.RESET);
             }
             BigDecimal input = scanner.nextBigDecimal();
-            if (input.compareTo(BigDecimal.ZERO) == 0 && list.size() != 0) {
-                System.out.println(confirmation + Color.GREEN + list + Color.RESET);
+            if (input.compareTo(BigDecimal.ZERO) == 0 && PRODUCT.getList().size() != 0) {
+                System.out.println(confirmation + Color.GREEN + PRODUCT.getList() + Color.RESET);
                 boolean correctCommand = false;
                 while (!correctCommand) {
                     Scanner scanner1 = new Scanner(System.in);
@@ -270,23 +319,23 @@ public class MeasureMain {
                         System.out.print(Color.RED + "Wrong command! " + Color.RESET + "Try again: ");
                     }
                 }
-            } else if (list.size() == 0 && input.compareTo(BigDecimal.ZERO) == 0) {
+            } else if (PRODUCT.getList().size() == 0 && input.compareTo(BigDecimal.ZERO) == 0) {
                 System.out.println(Color.RED + "You should enter at least one measurement." + Color.BLUE + "\n" + "Please continue: " + Color.RESET);
                 continue;
             }
 
             if (input.compareTo(BigDecimal.ZERO) < 0 && !input.equals(BigDecimal.valueOf(-1))) {
                 System.out.println(Color.RED + "Measurement cannot be less than 0! " + Color.RESET + "Try again: ");
-            } else if (input.equals(BigDecimal.valueOf(-1)) && list.size() != 0) {
-                list.remove(list.size() - 1);
-                System.out.println(undoConfirmation + Color.GREEN + list + Color.RESET + "\n" + Color.BLUE + "Continue: " + Color.RESET);
-            } else if (input.equals(BigDecimal.valueOf(-1)) && list.size() == 0) {
+            } else if (input.equals(BigDecimal.valueOf(-1)) && PRODUCT.getList().size() != 0) {
+                PRODUCT.getList().remove(PRODUCT.getList().size() - 1);
+                System.out.println(undoConfirmation + Color.GREEN + PRODUCT.getList() + Color.RESET + "\n" + Color.BLUE + "Continue: " + Color.RESET);
+            } else if (input.equals(BigDecimal.valueOf(-1)) && PRODUCT.getList().size() == 0) {
                 System.out.println(Color.RED + "There is nothing to delete." + Color.RESET + " Try again: ");
             } else if (input.compareTo(BigDecimal.ZERO) != 0) {
-                list.add(input);
+                PRODUCT.addToList(input);
             }
         }
-        return list;
+        return PRODUCT.getList();
     }
 
     protected static void productDataWriter(String productName,
@@ -324,7 +373,7 @@ public class MeasureMain {
         outList.add("");
         outList.add("Measurements sorted ascending: " + allMeasures);
         try {
-            Files.write(path, outList);
+            Files.write(PATH, outList);
         } catch (IOException ex) {
             System.out.println(Color.RED + "Can't save changes..." + Color.RESET);
         }
@@ -333,7 +382,7 @@ public class MeasureMain {
     protected static void productDataReader() {
 
         try {
-            for (String line : Files.readAllLines(path)) {
+            for (String line : Files.readAllLines(PATH)) {
                 System.out.println(line);
             }
         } catch (IOException e) {

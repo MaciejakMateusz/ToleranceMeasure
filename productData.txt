@@ -1,0 +1,20 @@
+PRODUCT NAME = MyProduct
+PRODUCT LENGTH = 100.0mm
+POSITIVE TOLERANCE = 0.8mm
+NEGATIVE TOLERANCE = -9.0mm
+
+All measurements(mm): [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60]
+Amount measured: 12 piece(s)
+Average of all measurements: 60.00mm
+
+TOLERANCE DATA
+Outside tolerance: 12 piece(s)
+Inside tolerance: 0 piece(s)
+Bigger than 100.8mm: 0 piece(s)
+Smaller than 91.0mm: 12 piece(s)
+
+Biggest measurement: 60mm
+Smallest measurement: 60mm
+Difference between the smallest and the biggest measurement: 0mm
+
+Measurements sorted ascending: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60]
