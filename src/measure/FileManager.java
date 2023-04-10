@@ -7,13 +7,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class FileManager {
 
     private static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     private static final DateTimeFormatter DTF_FILE = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    private static final LocalDateTime NOW = LocalDateTime.now();
     public static final String MAIN_DIRECTORY = "Measurements/";
 
     protected static void productDataWriter(String productName,
@@ -27,12 +28,14 @@ public class FileManager {
                                             BigDecimal measuresOutsideNegative,
                                             List<BigDecimal> allMeasures) {
 
+        LocalDateTime now = LocalDateTime.now();
+
         Path path = Paths.get(MAIN_DIRECTORY + productName);
-        Path path_file = Paths.get(MAIN_DIRECTORY + productName + "/" + productName + "_" + DTF_FILE.format(NOW));
+        Path path_file = Paths.get(MAIN_DIRECTORY + productName + "/" + productName + "_" + DTF_FILE.format(now));
 
         List<String> outList = new ArrayList<>();
 
-        outList.add("Measurement session date: " + DTF.format(NOW));
+        outList.add("Measurement session date: " + DTF.format(now));
         outList.add("");
         outList.add("PRODUCT NAME = " + productName);
         outList.add("PRODUCT LENGTH = " + productLength + "mm");
