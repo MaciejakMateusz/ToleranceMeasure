@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Sorting list bug fixed">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToleranceMeasure.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/DbUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/ProductDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/Queries.java" afterDir="false" />
+    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Added DAO and implemented new functionalities:&#10;- new submenu &quot;manager&quot;&#10;- creating product&#10;- selecting product and reading its data for measuring session (basically selecting preset, so that user no longer have to enter name, length and tolerances if the product exists in database)&#10;- deleting product">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/measure/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/productData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productData.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Queries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/measure/MeasureMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/MeasureMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/measure/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/Product.java" afterDir="false" />
     </list>
@@ -79,6 +80,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Measurements" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="measure" />
     </key>
@@ -90,6 +94,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="measure.FileManager" />
+      <module name="ToleranceMeasure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="measure.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -152,6 +169,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MeasureMain" />
+        <item itemvalue="Application.FileManager" />
         <item itemvalue="Application.ProductDao" />
         <item itemvalue="Application.Create" />
       </list>
@@ -188,7 +206,12 @@
       <workItem from="1679672929587" duration="2492000" />
       <workItem from="1680353998754" duration="1148000" />
       <workItem from="1680771917378" duration="10564000" />
-      <workItem from="1680821858721" duration="7637000" />
+      <workItem from="1680821858721" duration="14685000" />
+      <workItem from="1680875002883" duration="26415000" />
+      <workItem from="1680990562849" duration="3323000" />
+      <workItem from="1681051508954" duration="3472000" />
+      <workItem from="1681063026270" duration="1426000" />
+      <workItem from="1681071651059" duration="9796000" />
     </task>
     <task id="LOCAL-00001" summary="Commit with finished console version 1.0">
       <created>1677934896704</created>
@@ -218,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679630311124</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added DAO and implemented new functionalities:&#10;- new submenu &quot;manager&quot;&#10;- creating product&#10;- selecting product and reading its data for measuring session (basically selecting preset, so that user no longer have to enter name, length and tolerances if the product exists in database)&#10;- deleting product">
+      <created>1680865207495</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680865207495</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,6 +282,7 @@
     <MESSAGE value="Commit with finished console version 1.0" />
     <MESSAGE value="Updated program functionality:&#10;- deleting a measurement while measuring is now possible&#10;- program asks for confirmation&#10;- additional validation of user inputs&#10;&#10;Fixed bugs and upgraded code to be more OOP." />
     <MESSAGE value="Sorting list bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sorting list bug fixed" />
+    <MESSAGE value="Added DAO and implemented new functionalities:&#10;- new submenu &quot;manager&quot;&#10;- creating product&#10;- selecting product and reading its data for measuring session (basically selecting preset, so that user no longer have to enter name, length and tolerances if the product exists in database)&#10;- deleting product" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added DAO and implemented new functionalities:&#10;- new submenu &quot;manager&quot;&#10;- creating product&#10;- selecting product and reading its data for measuring session (basically selecting preset, so that user no longer have to enter name, length and tolerances if the product exists in database)&#10;- deleting product" />
   </component>
 </project>

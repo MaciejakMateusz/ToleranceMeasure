@@ -6,11 +6,19 @@ import java.util.List;
 
 public class Product {
 
+    private String name;
     private BigDecimal length;
     private BigDecimal posTolerance;
     private BigDecimal negTolerance;
-    private String name;
-    private static final List<BigDecimal> list = new ArrayList<>();
+    private final List<BigDecimal> list = new ArrayList<>();
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public BigDecimal getLength() {
         return this.length;
@@ -36,20 +44,16 @@ public class Product {
         this.negTolerance = negTolerance;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     protected List<BigDecimal> getList() {
-        return list;
+        return this.list;
     }
 
     protected void addToList(BigDecimal input) {
         list.add(input);
+    }
+
+    public void clearList() {
+        list.clear();
     }
 
     @Override
@@ -60,7 +64,4 @@ public class Product {
                 Color.BLUE + "POSITIVE TOLERANCE = " + Color.GREEN_BOLD + posTolerance + "mm" + "\n" +
                 Color.BLUE + "NEGATIVE TOLERANCE = " + Color.GREEN_BOLD + negTolerance + "mm" + Color.RESET;
     }
-
-
-
 }
