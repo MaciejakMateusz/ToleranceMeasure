@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="- Bug fixes.&#10;-new README&#10;- added creation of directories and files based on product name, current date and time&#10;- code formatting">
-      <change afterPath="$PROJECT_DIR$/Measurements/Kokonut/Kokonut_2023-04-10 14:50:46" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Measurements/Product1/Product 1_2023-04-10 14:50:46" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Measurements/Product2/Product2_2023-04-10 14:50:46" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="- Date and time bug fixed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,7 +200,7 @@
       <workItem from="1681051508954" duration="3472000" />
       <workItem from="1681063026270" duration="1426000" />
       <workItem from="1681071651059" duration="10032000" />
-      <workItem from="1681130986987" duration="510000" />
+      <workItem from="1681130986987" duration="1548000" />
     </task>
     <task id="LOCAL-00001" summary="Commit with finished console version 1.0">
       <created>1677934896704</created>
@@ -249,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681121777415</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- Date and time bug fixed">
+      <created>1681132617786</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681132617786</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +287,7 @@
     <MESSAGE value="Sorting list bug fixed" />
     <MESSAGE value="Added DAO and implemented new functionalities:&#10;- new submenu &quot;manager&quot;&#10;- creating product&#10;- selecting product and reading its data for measuring session (basically selecting preset, so that user no longer have to enter name, length and tolerances if the product exists in database)&#10;- deleting product" />
     <MESSAGE value="- Bug fixes.&#10;-new README&#10;- added creation of directories and files based on product name, current date and time&#10;- code formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Bug fixes.&#10;-new README&#10;- added creation of directories and files based on product name, current date and time&#10;- code formatting" />
+    <MESSAGE value="- Date and time bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Date and time bug fixed" />
   </component>
 </project>

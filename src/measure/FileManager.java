@@ -12,9 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class FileManager {
-
-    private static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-    private static final DateTimeFormatter DTF_FILE = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     public static final String MAIN_DIRECTORY = "Measurements/";
 
     protected static void productDataWriter(String productName,
@@ -31,7 +29,7 @@ public class FileManager {
         LocalDateTime now = LocalDateTime.now();
 
         Path path = Paths.get(MAIN_DIRECTORY + productName);
-        Path path_file = Paths.get(MAIN_DIRECTORY + productName + "/" + productName + "_" + DTF_FILE.format(now));
+        Path path_file = Paths.get(MAIN_DIRECTORY + productName + "/" + productName + "_" + DTF.format(now));
 
         List<String> outList = new ArrayList<>();
 
