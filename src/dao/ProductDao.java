@@ -24,9 +24,9 @@ public class ProductDao extends Queries {
     public static void createProduct(Product product) {
 
         System.out.println(Color.BLUE + "Create new product" + Color.RESET);
-        MeasureMain.nameSetter();
-        MeasureMain.lengthSetter();
-        MeasureMain.tolerancesSetter();
+        MeasureMain.PRODUCT.setName();
+        MeasureMain.PRODUCT.setLength();
+        MeasureMain.PRODUCT.tolerancesSetter();
         insertIntoProducts(product);
         MeasureMain.mainMenu();
     }
@@ -190,7 +190,7 @@ public class ProductDao extends Queries {
         String MAIN_DIRECTORY = "Measurements/";
         Path path = Paths.get(MAIN_DIRECTORY + MeasureMain.PRODUCT.getName());
 
-        MeasureMain.nameSetter();
+        MeasureMain.PRODUCT.setName();
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
              PreparedStatement prepStmt = conn.prepareStatement(UPDATE_NAME_QUERY)) {
@@ -217,7 +217,7 @@ public class ProductDao extends Queries {
 
     private static void editLength(int productID) {
 
-        MeasureMain.lengthSetter();
+        MeasureMain.PRODUCT.setLength();
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
              PreparedStatement prepStmt = conn.prepareStatement(UPDATE_LENGTH_QUERY)) {
@@ -236,7 +236,7 @@ public class ProductDao extends Queries {
 
     private static void editTolerances(int productID) {
 
-        MeasureMain.tolerancesSetter();
+        MeasureMain.PRODUCT.tolerancesSetter();
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
              PreparedStatement prepStmt = conn.prepareStatement(UPDATE_TOLERANCES_QUERY)) {

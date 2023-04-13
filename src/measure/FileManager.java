@@ -57,6 +57,7 @@ public class FileManager {
         outList.add("Difference between the smallest and the biggest measurement: " + biggestDifference + "mm");
         outList.add("");
         outList.add("Measurements sorted ascending: " + allMeasures);
+
         try {
             if (Files.notExists(path)) {
                 Files.createDirectory(path);
@@ -69,4 +70,5 @@ public class FileManager {
             System.out.println(Color.RED_BOLD + "Can't create file" + Color.RESET);
         }
     }
+
 }

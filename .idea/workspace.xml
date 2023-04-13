@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="- Date and time bug fixed" />
+    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="- Date and time format for files changed">
+      <change afterPath="$PROJECT_DIR$/Measurements/60/60_2023-04-10 21:53:15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Measurements/HEHE/HEHE_2023-04-13 10:03:00" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Measurements/Konitczynka/Konitczynka_2023-04-13 09:59:06" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Measurements/ScannerTest/ScannerTest_2023-04-10 21:44:16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Measurements/SetName TEST/setName test_2023-04-13 10:31:53" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Measurements/SetName TEST/setName test_2023-04-13 10:32:18" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/measure/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/measure/MeasureMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/MeasureMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/measure/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/Product.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +65,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mateusz/Projekty własne/ToleranceMeasure&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mateusz/Kurs Java CodersLab/ONL_JEE_W_21_OOP_Praca_Domowa&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -200,7 +212,12 @@
       <workItem from="1681051508954" duration="3472000" />
       <workItem from="1681063026270" duration="1426000" />
       <workItem from="1681071651059" duration="10032000" />
-      <workItem from="1681130986987" duration="1548000" />
+      <workItem from="1681130986987" duration="2651000" />
+      <workItem from="1681153722134" duration="1943000" />
+      <workItem from="1681163168336" duration="409000" />
+      <workItem from="1681316918424" duration="1760000" />
+      <workItem from="1681372081943" duration="911000" />
+      <workItem from="1681374604244" duration="1870000" />
     </task>
     <task id="LOCAL-00001" summary="Commit with finished console version 1.0">
       <created>1677934896704</created>
@@ -251,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681132617786</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- Date and time format for files changed">
+      <created>1681132757473</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681132757473</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,6 +312,7 @@
     <MESSAGE value="Added DAO and implemented new functionalities:&#10;- new submenu &quot;manager&quot;&#10;- creating product&#10;- selecting product and reading its data for measuring session (basically selecting preset, so that user no longer have to enter name, length and tolerances if the product exists in database)&#10;- deleting product" />
     <MESSAGE value="- Bug fixes.&#10;-new README&#10;- added creation of directories and files based on product name, current date and time&#10;- code formatting" />
     <MESSAGE value="- Date and time bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Date and time bug fixed" />
+    <MESSAGE value="- Date and time format for files changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Date and time format for files changed" />
   </component>
 </project>
