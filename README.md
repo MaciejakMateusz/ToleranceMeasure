@@ -7,6 +7,16 @@ of sawing machines based on given measurements of products made by the machine.
 It is my main project I use to consolidate my knowledge about Java and other
 technologies. I will update this project as I gather more experience and knowledge.
 
+
+## Technologies used
+
+**Note:**
+I wrote my experience in each technology used as for *13-04-2024*.
+
+1. Java version 11 - **2 months**
+2. mySQL Ver 8.0.32-0ubuntu0.22.04.2 - **1 month**
+3. Java.nio for file management
+
 ## Features
 
 1. Collecting data about products.

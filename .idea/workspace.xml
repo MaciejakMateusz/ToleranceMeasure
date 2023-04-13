@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Simplified and refactored code, moved and merged method such as:&#10;- refactored files structure&#10;- cleaned up trash files&#10;- refactored 'PRODUCT' variable to 'product' as it is no longer final" />
+    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Renamed list: 'allMeasures' to 'measurementsList'">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -210,7 +212,7 @@
       <workItem from="1681316918424" duration="1760000" />
       <workItem from="1681372081943" duration="911000" />
       <workItem from="1681374604244" duration="2180000" />
-      <workItem from="1681376940196" duration="2141000" />
+      <workItem from="1681376940196" duration="2574000" />
     </task>
     <task id="LOCAL-00001" summary="Commit with finished console version 1.0">
       <created>1677934896704</created>
@@ -282,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681411718549</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Renamed list: 'allMeasures' to 'measurementsList'">
+      <created>1681412160580</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681412160580</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,6 +331,7 @@
     <MESSAGE value="- Date and time format for files changed" />
     <MESSAGE value="Simplified and refactored code, moved and merged method such as:&#10;- setters logic from MeasureMain moved to Product class setters&#10;- bug fixes" />
     <MESSAGE value="Simplified and refactored code, moved and merged method such as:&#10;- refactored files structure&#10;- cleaned up trash files&#10;- refactored 'PRODUCT' variable to 'product' as it is no longer final" />
-    <option name="LAST_COMMIT_MESSAGE" value="Simplified and refactored code, moved and merged method such as:&#10;- refactored files structure&#10;- cleaned up trash files&#10;- refactored 'PRODUCT' variable to 'product' as it is no longer final" />
+    <MESSAGE value="Renamed list: 'allMeasures' to 'measurementsList'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed list: 'allMeasures' to 'measurementsList'" />
   </component>
 </project>
