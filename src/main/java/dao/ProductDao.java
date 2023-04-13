@@ -24,9 +24,9 @@ public class ProductDao extends Queries {
     public static void createProduct(Product product) {
 
         System.out.println(Color.BLUE + "Create new product" + Color.RESET);
-        MeasureMain.PRODUCT.setName();
-        MeasureMain.PRODUCT.setLength();
-        MeasureMain.PRODUCT.tolerancesSetter();
+        MeasureMain.product.setName();
+        MeasureMain.product.setLength();
+        MeasureMain.product.tolerancesSetter();
         insertIntoProducts(product);
         MeasureMain.mainMenu();
     }
@@ -67,7 +67,7 @@ public class ProductDao extends Queries {
                     String choice = scanner.nextLine();
                     switch (choice) {
                         case "y":
-                            createProduct(MeasureMain.PRODUCT);
+                            createProduct(MeasureMain.product);
                             correctChoice = true;
                             break;
                         case "n":
@@ -145,7 +145,7 @@ public class ProductDao extends Queries {
 
     public static void editProduct() {
 
-        int productID = readId(MeasureMain.PRODUCT, "Enter ID of the product to edit");
+        int productID = readId(MeasureMain.product, "Enter ID of the product to edit");
 
         System.out.println();
         System.out.println(Color.BLUE + "What should be changed?" + Color.RESET);
@@ -188,13 +188,13 @@ public class ProductDao extends Queries {
     private static void editName(int productID) {
 
         String MAIN_DIRECTORY = "Measurements/";
-        Path path = Paths.get(MAIN_DIRECTORY + MeasureMain.PRODUCT.getName());
+        Path path = Paths.get(MAIN_DIRECTORY + MeasureMain.product.getName());
 
-        MeasureMain.PRODUCT.setName();
+        MeasureMain.product.setName();
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
              PreparedStatement prepStmt = conn.prepareStatement(UPDATE_NAME_QUERY)) {
-            prepStmt.setString(1, MeasureMain.PRODUCT.getName());
+            prepStmt.setString(1, MeasureMain.product.getName());
             prepStmt.setInt(2, productID);
             prepStmt.executeUpdate();
         } catch (SQLException e) {
@@ -207,7 +207,7 @@ public class ProductDao extends Queries {
 
         try {
             if (!Files.notExists(path)) {
-                Files.move(path, path.resolveSibling(MeasureMain.PRODUCT.getName()));
+                Files.move(path, path.resolveSibling(MeasureMain.product.getName()));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -217,11 +217,11 @@ public class ProductDao extends Queries {
 
     private static void editLength(int productID) {
 
-        MeasureMain.PRODUCT.setLength();
+        MeasureMain.product.setLength();
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
              PreparedStatement prepStmt = conn.prepareStatement(UPDATE_LENGTH_QUERY)) {
-            prepStmt.setBigDecimal(1, MeasureMain.PRODUCT.getLength());
+            prepStmt.setBigDecimal(1, MeasureMain.product.getLength());
             prepStmt.setInt(2, productID);
             prepStmt.executeUpdate();
         } catch (SQLException e) {
@@ -236,12 +236,12 @@ public class ProductDao extends Queries {
 
     private static void editTolerances(int productID) {
 
-        MeasureMain.PRODUCT.tolerancesSetter();
+        MeasureMain.product.tolerancesSetter();
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
              PreparedStatement prepStmt = conn.prepareStatement(UPDATE_TOLERANCES_QUERY)) {
-            prepStmt.setBigDecimal(1, MeasureMain.PRODUCT.getPosTolerance());
-            prepStmt.setBigDecimal(2, MeasureMain.PRODUCT.getNegTolerance());
+            prepStmt.setBigDecimal(1, MeasureMain.product.getPosTolerance());
+            prepStmt.setBigDecimal(2, MeasureMain.product.getNegTolerance());
             prepStmt.setInt(3, productID);
             prepStmt.executeUpdate();
         } catch (SQLException e) {

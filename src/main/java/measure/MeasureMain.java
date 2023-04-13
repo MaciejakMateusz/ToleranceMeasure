@@ -12,7 +12,7 @@ import static measure.FileManager.productDataWriter;
 
 public class MeasureMain {
 
-    public static Product PRODUCT = new Product();
+    public static Product product = new Product();
 
     public static void main(String[] args) {
         mainMenu();
@@ -36,17 +36,17 @@ public class MeasureMain {
             switch (choice) {
                 case "start":
                     System.out.println();
-                    PRODUCT.clearList();
-                    PRODUCT.setName();
-                    PRODUCT.setLength();
-                    PRODUCT.tolerancesSetter();
-                    ProductDao.insertIntoProducts(PRODUCT);
+                    product.clearList();
+                    product.setName();
+                    product.setLength();
+                    product.tolerancesSetter();
+                    ProductDao.insertIntoProducts(product);
                     mainProgram();
                     correctChoice = true;
                     break;
                 case "select":
                     System.out.println();
-                    ProductDao.readId(PRODUCT, "Enter ID of the product to measure");
+                    ProductDao.readId(product, "Enter ID of the product to measure");
                     mainProgram();
                     correctChoice = true;
                     break;
@@ -79,7 +79,7 @@ public class MeasureMain {
             switch (choice) {
                 case "create":
                     System.out.println();
-                    ProductDao.createProduct(PRODUCT);
+                    ProductDao.createProduct(product);
                     correctChoice = true;
                     break;
                 case "edit":
@@ -105,19 +105,19 @@ public class MeasureMain {
 
     public static void mainProgram() {
 
-        String productName = PRODUCT.getName();
-        BigDecimal productLength = PRODUCT.getLength();
-        BigDecimal posTolerance = PRODUCT.getPosTolerance();
-        BigDecimal negTolerance = PRODUCT.getNegTolerance();
+        String productName = product.getName();
+        BigDecimal productLength = product.getLength();
+        BigDecimal posTolerance = product.getPosTolerance();
+        BigDecimal negTolerance = product.getNegTolerance();
 
-        System.out.println(PRODUCT + "\n");
+        System.out.println(product + "\n");
 
         System.out.println("Enter measurements."
                 + "\n" + Color.GREEN + "0" + Color.RESET + " - to confirm measurements"
                 + "\n" + Color.GREEN + "-1" + Color.RESET + " - to delete last measurement (undo)");
 
-        PRODUCT.setProductMeasurements();
-        List<BigDecimal> allMeasures = PRODUCT.getProductMeasurements();
+        product.setProductMeasurements();
+        List<BigDecimal> allMeasures = product.getProductMeasurements();
 
         System.out.println();
 

@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="- Date and time format for files changed">
-      <change afterPath="$PROJECT_DIR$/Measurements/60/60_2023-04-10 21:53:15" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Measurements/HEHE/HEHE_2023-04-13 10:03:00" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Measurements/Konitczynka/Konitczynka_2023-04-13 09:59:06" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Measurements/ScannerTest/ScannerTest_2023-04-10 21:44:16" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Measurements/SetName TEST/setName test_2023-04-13 10:31:53" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Measurements/SetName TEST/setName test_2023-04-13 10:32:18" afterDir="false" />
+    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Simplified and refactored code, moved and merged method such as:&#10;- setters logic from MeasureMain moved to Product class setters&#10;- bug fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/measure/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/measure/MeasureMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/MeasureMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/measure/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/measure/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +75,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/Measurements" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -217,7 +212,8 @@
       <workItem from="1681163168336" duration="409000" />
       <workItem from="1681316918424" duration="1760000" />
       <workItem from="1681372081943" duration="911000" />
-      <workItem from="1681374604244" duration="1870000" />
+      <workItem from="1681374604244" duration="2180000" />
+      <workItem from="1681376940196" duration="1582000" />
     </task>
     <task id="LOCAL-00001" summary="Commit with finished console version 1.0">
       <created>1677934896704</created>
@@ -275,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681132757473</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Simplified and refactored code, moved and merged method such as:&#10;- setters logic from MeasureMain moved to Product class setters&#10;- bug fixes">
+      <created>1681376775207</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681376775207</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +316,7 @@
     <MESSAGE value="- Bug fixes.&#10;-new README&#10;- added creation of directories and files based on product name, current date and time&#10;- code formatting" />
     <MESSAGE value="- Date and time bug fixed" />
     <MESSAGE value="- Date and time format for files changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Date and time format for files changed" />
+    <MESSAGE value="Simplified and refactored code, moved and merged method such as:&#10;- setters logic from MeasureMain moved to Product class setters&#10;- bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplified and refactored code, moved and merged method such as:&#10;- setters logic from MeasureMain moved to Product class setters&#10;- bug fixes" />
   </component>
 </project>
