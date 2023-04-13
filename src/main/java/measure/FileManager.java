@@ -24,7 +24,7 @@ public class FileManager {
                                             BigDecimal avg,
                                             BigDecimal measuresOutsidePositive,
                                             BigDecimal measuresOutsideNegative,
-                                            List<BigDecimal> allMeasures) {
+                                            List<BigDecimal> measurementsList) {
 
         LocalDateTime now = LocalDateTime.now();
 
@@ -40,8 +40,8 @@ public class FileManager {
         outList.add("POSITIVE TOLERANCE = " + posTolerance + "mm");
         outList.add("NEGATIVE TOLERANCE = " + negTolerance + "mm");
         outList.add("");
-        outList.add("All measurements(mm): " + allMeasures.toString());
-        outList.add("Amount measured: " + allMeasures.size() + " piece(s)");
+        outList.add("All measurements(mm): " + measurementsList.toString());
+        outList.add("Amount measured: " + measurementsList.size() + " piece(s)");
         outList.add("Average of all measurements: " + avg + "mm");
         outList.add("");
         outList.add("TOLERANCE DATA");
@@ -50,13 +50,13 @@ public class FileManager {
         outList.add("Bigger than " + (productLength.add(posTolerance)) + "mm: " + measuresOutsidePositive + " piece(s)");
         outList.add("Smaller than " + (productLength.add(negTolerance)) + "mm: " + measuresOutsideNegative + " piece(s)");
         outList.add("");
-        outList.add("Biggest measurement: " + allMeasures.get(allMeasures.size() - 1) + "mm");
-        outList.add("Smallest measurement: " + allMeasures.get(0) + "mm");
-        Collections.sort(allMeasures);
-        BigDecimal biggestDifference = allMeasures.get(allMeasures.size() - 1).subtract(allMeasures.get(0));
+        outList.add("Biggest measurement: " + measurementsList.get(measurementsList.size() - 1) + "mm");
+        outList.add("Smallest measurement: " + measurementsList.get(0) + "mm");
+        Collections.sort(measurementsList);
+        BigDecimal biggestDifference = measurementsList.get(measurementsList.size() - 1).subtract(measurementsList.get(0));
         outList.add("Difference between the smallest and the biggest measurement: " + biggestDifference + "mm");
         outList.add("");
-        outList.add("Measurements sorted ascending: " + allMeasures);
+        outList.add("Measurements sorted ascending: " + measurementsList);
 
         try {
             if (Files.notExists(path)) {

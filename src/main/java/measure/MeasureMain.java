@@ -117,18 +117,18 @@ public class MeasureMain {
                 + "\n" + Color.GREEN + "-1" + Color.RESET + " - to delete last measurement (undo)");
 
         product.setProductMeasurements();
-        List<BigDecimal> allMeasures = product.getProductMeasurements();
+        List<BigDecimal> measurementsList = product.getProductMeasurements();
 
         System.out.println();
 
         BigDecimal sum = BigDecimal.valueOf(0);
-        BigDecimal measuresQuantity = BigDecimal.valueOf(allMeasures.size());
-        for (int i = 0; i < allMeasures.size(); i++) {
-            sum = allMeasures.get(i).add(sum);
+        BigDecimal measuresQuantity = BigDecimal.valueOf(measurementsList.size());
+        for (int i = 0; i < measurementsList.size(); i++) {
+            sum = measurementsList.get(i).add(sum);
         }
         BigDecimal avg = sum.divide(measuresQuantity, 2, RoundingMode.HALF_UP);
 
-        System.out.println(Color.BLUE + "All measurements(mm): " + Color.RESET + allMeasures + "\n");
+        System.out.println(Color.BLUE + "All measurements(mm): " + Color.RESET + measurementsList + "\n");
         System.out.println(Color.BLUE + "Amount measured: " + Color.RESET + measuresQuantity + " piece(s)");
         System.out.println(Color.BLUE + "Average of all measurements: " + Color.RESET + avg + "mm");
         System.out.println();
@@ -137,11 +137,11 @@ public class MeasureMain {
         BigDecimal measuresOutsidePositive = BigDecimal.valueOf(0);
         BigDecimal measuresOutsideNegative = BigDecimal.valueOf(0);
 
-        for (int i = 0; i < allMeasures.size(); i++) {
-            if (allMeasures.get(i).compareTo(productLength.add(posTolerance)) > 0) {
+        for (int i = 0; i < measurementsList.size(); i++) {
+            if (measurementsList.get(i).compareTo(productLength.add(posTolerance)) > 0) {
                 measuresBad = measuresBad.add(BigDecimal.valueOf(1));
                 measuresOutsidePositive = measuresOutsidePositive.add(BigDecimal.valueOf(1));
-            } else if (allMeasures.get(i).compareTo(productLength.add(negTolerance)) < 0) {
+            } else if (measurementsList.get(i).compareTo(productLength.add(negTolerance)) < 0) {
                 measuresBad = measuresBad.add(BigDecimal.valueOf(1));
                 measuresOutsideNegative = measuresOutsideNegative.add(BigDecimal.valueOf(1));
             }
@@ -156,18 +156,18 @@ public class MeasureMain {
         System.out.println(Color.BLUE + "Smaller than " + (productLength.add(negTolerance)) + "mm" + ": " + Color.RESET + measuresOutsideNegative + " piece(s)");
         System.out.println();
 
-        Collections.sort(allMeasures);
+        Collections.sort(measurementsList);
 
-        System.out.println(Color.BLUE + "Biggest measurement: " + Color.RESET + allMeasures.get(allMeasures.size() - 1) + "mm");
-        System.out.println(Color.BLUE + "Smallest measurement: " + Color.RESET + allMeasures.get(0) + "mm");
+        System.out.println(Color.BLUE + "Biggest measurement: " + Color.RESET + measurementsList.get(measurementsList.size() - 1) + "mm");
+        System.out.println(Color.BLUE + "Smallest measurement: " + Color.RESET + measurementsList.get(0) + "mm");
 
-        BigDecimal biggestDifference = allMeasures
-                .get(allMeasures.size() - 1)
-                .subtract(allMeasures.get(0));
+        BigDecimal biggestDifference = measurementsList
+                .get(measurementsList.size() - 1)
+                .subtract(measurementsList.get(0));
 
         System.out.println(Color.BLUE + "Difference between the smallest and the biggest measurement: " + Color.CYAN_BOLD + biggestDifference + "mm" + Color.RESET);
         System.out.println();
-        System.out.println(Color.BLUE + "Measurements sorted ascending: " + Color.RESET + allMeasures);
+        System.out.println(Color.BLUE + "Measurements sorted ascending: " + Color.RESET + measurementsList);
         System.out.println();
 
         productDataWriter(productName,
@@ -179,7 +179,7 @@ public class MeasureMain {
                 avg,
                 measuresOutsidePositive,
                 measuresOutsideNegative,
-                allMeasures);
+                measurementsList);
 
         mainMenu();
     }
