@@ -225,6 +225,7 @@ public class Product {
                 this.productMeasurements.add(measurement);
             }
         }
+        System.out.println();
     }
 
     public void clearList() {

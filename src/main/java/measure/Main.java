@@ -10,7 +10,7 @@ import java.math.RoundingMode;
 
 import static measure.FileManager.productDataWriter;
 
-public class MeasureMain {
+public class Main {
 
     public static Product product = new Product();
 
@@ -112,73 +112,57 @@ public class MeasureMain {
 
         System.out.println(product + "\n");
 
-        System.out.println("Enter measurements."
-                + "\n" + Color.GREEN + "0" + Color.RESET + " - to confirm measurements"
-                + "\n" + Color.GREEN + "-1" + Color.RESET + " - to delete last measurement (undo)");
+        Messages.enterMeasurements();
 
         product.setProductMeasurements();
         List<BigDecimal> measurementsList = product.getProductMeasurements();
 
-        System.out.println();
-
-        BigDecimal sum = BigDecimal.valueOf(0);
-        BigDecimal measuresQuantity = BigDecimal.valueOf(measurementsList.size());
+        BigDecimal measurementsSum = BigDecimal.valueOf(0);
+        BigDecimal measurementsQuantity = BigDecimal.valueOf(measurementsList.size());
         for (int i = 0; i < measurementsList.size(); i++) {
-            sum = measurementsList.get(i).add(sum);
+            measurementsSum = measurementsList.get(i).add(measurementsSum);
         }
-        BigDecimal avg = sum.divide(measuresQuantity, 2, RoundingMode.HALF_UP);
+        BigDecimal avg = measurementsSum.divide(measurementsQuantity, 2, RoundingMode.HALF_UP);
 
-        System.out.println(Color.BLUE + "All measurements(mm): " + Color.RESET + measurementsList + "\n");
-        System.out.println(Color.BLUE + "Amount measured: " + Color.RESET + measuresQuantity + " piece(s)");
-        System.out.println(Color.BLUE + "Average of all measurements: " + Color.RESET + avg + "mm");
-        System.out.println();
+        Messages.measurementsAvg_Quantity(measurementsList, measurementsQuantity, avg);
 
-        BigDecimal measuresBad = BigDecimal.valueOf(0);
-        BigDecimal measuresOutsidePositive = BigDecimal.valueOf(0);
-        BigDecimal measuresOutsideNegative = BigDecimal.valueOf(0);
+        BigDecimal measurementsBad = BigDecimal.valueOf(0);
+        BigDecimal measurementsOutsidePositive = BigDecimal.valueOf(0);
+        BigDecimal measurementsOutsideNegative = BigDecimal.valueOf(0);
 
         for (int i = 0; i < measurementsList.size(); i++) {
             if (measurementsList.get(i).compareTo(productLength.add(posTolerance)) > 0) {
-                measuresBad = measuresBad.add(BigDecimal.valueOf(1));
-                measuresOutsidePositive = measuresOutsidePositive.add(BigDecimal.valueOf(1));
+                measurementsBad = measurementsBad.add(BigDecimal.valueOf(1));
+                measurementsOutsidePositive = measurementsOutsidePositive.add(BigDecimal.valueOf(1));
             } else if (measurementsList.get(i).compareTo(productLength.add(negTolerance)) < 0) {
-                measuresBad = measuresBad.add(BigDecimal.valueOf(1));
-                measuresOutsideNegative = measuresOutsideNegative.add(BigDecimal.valueOf(1));
+                measurementsBad = measurementsBad.add(BigDecimal.valueOf(1));
+                measurementsOutsideNegative = measurementsOutsideNegative.add(BigDecimal.valueOf(1));
             }
         }
 
-        BigDecimal measuresGood = measuresQuantity.subtract(measuresBad);
+        BigDecimal measurementsInTolerance = measurementsQuantity.subtract(measurementsBad);
 
-        System.out.println("TOLERANCE DATA");
-        System.out.println(Color.BLUE + "Outside tolerance: " + Color.RED + measuresBad + " piece(s)" + Color.RESET);
-        System.out.println(Color.BLUE + "Inside tolerance: " + Color.GREEN + measuresGood + " piece(s)" + Color.RESET);
-        System.out.println(Color.BLUE + "Bigger than " + (productLength.add(posTolerance)) + "mm" + ": " + Color.RESET + measuresOutsidePositive + " piece(s)");
-        System.out.println(Color.BLUE + "Smaller than " + (productLength.add(negTolerance)) + "mm" + ": " + Color.RESET + measuresOutsideNegative + " piece(s)");
-        System.out.println();
+        Messages.tolerancesData(productLength, posTolerance, negTolerance, measurementsBad, measurementsOutsidePositive, measurementsOutsideNegative, measurementsInTolerance);
 
         Collections.sort(measurementsList);
 
-        System.out.println(Color.BLUE + "Biggest measurement: " + Color.RESET + measurementsList.get(measurementsList.size() - 1) + "mm");
-        System.out.println(Color.BLUE + "Smallest measurement: " + Color.RESET + measurementsList.get(0) + "mm");
+        Messages.biggestSmallest_Measurement(measurementsList);
 
         BigDecimal biggestDifference = measurementsList
                 .get(measurementsList.size() - 1)
                 .subtract(measurementsList.get(0));
 
-        System.out.println(Color.BLUE + "Difference between the smallest and the biggest measurement: " + Color.CYAN_BOLD + biggestDifference + "mm" + Color.RESET);
-        System.out.println();
-        System.out.println(Color.BLUE + "Measurements sorted ascending: " + Color.RESET + measurementsList);
-        System.out.println();
+        Messages.measurementsDifferences_SortedList(measurementsList, biggestDifference);
 
         productDataWriter(productName,
                 productLength,
                 posTolerance,
                 negTolerance,
-                measuresBad,
-                measuresGood,
+                measurementsBad,
+                measurementsInTolerance,
                 avg,
-                measuresOutsidePositive,
-                measuresOutsideNegative,
+                measurementsOutsidePositive,
+                measurementsOutsideNegative,
                 measurementsList);
 
         mainMenu();

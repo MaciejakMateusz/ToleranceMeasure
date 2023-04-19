@@ -1,0 +1,22 @@
+Measurement session date: 2023-04-19 14:09:26
+
+PRODUCT NAME = Mati
+PRODUCT LENGTH = 100.0mm
+POSITIVE TOLERANCE = 0.0mm
+NEGATIVE TOLERANCE = -1.0mm
+
+All measurements(mm): [99, 99, 100, 101]
+Amount measured: 4 piece(s)
+Average of all measurements: 99.75mm
+
+TOLERANCE DATA
+Outside tolerance: 1 piece(s)
+Inside tolerance: 3 piece(s)
+Bigger than 100.0mm: 1 piece(s)
+Smaller than 99.0mm: 0 piece(s)
+
+Biggest measurement: 101mm
+Smallest measurement: 99mm
+Difference between the smallest and the biggest measurement: 2mm
+
+Measurements sorted ascending: [99, 99, 100, 101]

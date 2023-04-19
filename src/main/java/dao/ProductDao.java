@@ -1,7 +1,7 @@
 package dao;
 
 import measure.Color;
-import measure.MeasureMain;
+import measure.Main;
 import measure.Product;
 
 import java.io.IOException;
@@ -24,11 +24,11 @@ public class ProductDao extends Queries {
     public static void createProduct(Product product) {
 
         System.out.println(Color.BLUE + "Create new product" + Color.RESET);
-        MeasureMain.product.setName();
-        MeasureMain.product.setLength();
-        MeasureMain.product.tolerancesSetter();
+        Main.product.setName();
+        Main.product.setLength();
+        Main.product.tolerancesSetter();
         insertIntoProducts(product);
-        MeasureMain.mainMenu();
+        Main.mainMenu();
     }
 
     public static void insertIntoProducts(Product product) {
@@ -67,11 +67,11 @@ public class ProductDao extends Queries {
                     String choice = scanner.nextLine();
                     switch (choice) {
                         case "y":
-                            createProduct(MeasureMain.product);
+                            createProduct(Main.product);
                             correctChoice = true;
                             break;
                         case "n":
-                            MeasureMain.mainMenu();
+                            Main.mainMenu();
                             correctChoice = true;
                             break;
                         default:
@@ -112,7 +112,7 @@ public class ProductDao extends Queries {
 
         if (productID == -1) {
             System.out.println();
-            MeasureMain.mainMenu();
+            Main.mainMenu();
         }
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
@@ -122,7 +122,7 @@ public class ProductDao extends Queries {
             if (!rs.next()) {
                 System.out.println(Color.RED + "No product with given ID found" + Color.RESET);
                 sleep(1000);
-                MeasureMain.mainMenu();
+                Main.mainMenu();
                 return 0;
             } else {
                 do {
@@ -145,7 +145,7 @@ public class ProductDao extends Queries {
 
     public static void editProduct() {
 
-        int productID = readId(MeasureMain.product, "Enter ID of the product to edit");
+        int productID = readId(Main.product, "Enter ID of the product to edit");
 
         System.out.println();
         System.out.println(Color.BLUE + "What should be changed?" + Color.RESET);
@@ -174,7 +174,7 @@ public class ProductDao extends Queries {
                     correctChoice = true;
                     break;
                 case "back":
-                    MeasureMain.subMenu();
+                    Main.subMenu();
                     correctChoice = true;
                     break;
                 default:
@@ -188,70 +188,70 @@ public class ProductDao extends Queries {
     private static void editName(int productID) {
 
         String MAIN_DIRECTORY = "Measurements/";
-        Path path = Paths.get(MAIN_DIRECTORY + MeasureMain.product.getName());
+        Path path = Paths.get(MAIN_DIRECTORY + Main.product.getName());
 
-        MeasureMain.product.setName();
+        Main.product.setName();
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
              PreparedStatement prepStmt = conn.prepareStatement(UPDATE_NAME_QUERY)) {
-            prepStmt.setString(1, MeasureMain.product.getName());
+            prepStmt.setString(1, Main.product.getName());
             prepStmt.setInt(2, productID);
             prepStmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(Color.RED + "No product with given ID found" + Color.RESET);
             sleep(1000);
-            MeasureMain.mainMenu();
+            Main.mainMenu();
         }
         System.out.println(Color.GREEN_BOLD + "Product data changed successfully." + Color.RESET);
         System.out.println();
 
         try {
             if (!Files.notExists(path)) {
-                Files.move(path, path.resolveSibling(MeasureMain.product.getName()));
+                Files.move(path, path.resolveSibling(Main.product.getName()));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        MeasureMain.subMenu();
+        Main.subMenu();
     }
 
     private static void editLength(int productID) {
 
-        MeasureMain.product.setLength();
+        Main.product.setLength();
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
              PreparedStatement prepStmt = conn.prepareStatement(UPDATE_LENGTH_QUERY)) {
-            prepStmt.setBigDecimal(1, MeasureMain.product.getLength());
+            prepStmt.setBigDecimal(1, Main.product.getLength());
             prepStmt.setInt(2, productID);
             prepStmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(Color.RED + "No product with given ID found" + Color.RESET);
             sleep(1000);
-            MeasureMain.mainMenu();
+            Main.mainMenu();
         }
         System.out.println(Color.GREEN_BOLD + "Product data changed successfully." + Color.RESET);
         System.out.println();
-        MeasureMain.subMenu();
+        Main.subMenu();
     }
 
     private static void editTolerances(int productID) {
 
-        MeasureMain.product.tolerancesSetter();
+        Main.product.tolerancesSetter();
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
              PreparedStatement prepStmt = conn.prepareStatement(UPDATE_TOLERANCES_QUERY)) {
-            prepStmt.setBigDecimal(1, MeasureMain.product.getPosTolerance());
-            prepStmt.setBigDecimal(2, MeasureMain.product.getNegTolerance());
+            prepStmt.setBigDecimal(1, Main.product.getPosTolerance());
+            prepStmt.setBigDecimal(2, Main.product.getNegTolerance());
             prepStmt.setInt(3, productID);
             prepStmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(Color.RED + "No product with given ID found" + Color.RESET);
             sleep(1000);
-            MeasureMain.mainMenu();
+            Main.mainMenu();
         }
         System.out.println(Color.GREEN_BOLD + "Product data changed successfully." + Color.RESET);
         System.out.println();
-        MeasureMain.subMenu();
+        Main.subMenu();
     }
 
 
@@ -265,7 +265,7 @@ public class ProductDao extends Queries {
 
         if (productID == -1) {
             System.out.println();
-            MeasureMain.subMenu();
+            Main.subMenu();
         }
 
         try (Connection conn = DbUtil.getConnection(DATABASE);
@@ -275,11 +275,11 @@ public class ProductDao extends Queries {
         } catch (SQLException e) {
             System.out.println(Color.RED + "No product with given ID found" + Color.RESET);
             sleep(1000);
-            MeasureMain.mainMenu();
+            Main.mainMenu();
         }
         System.out.println(Color.GREEN_BOLD + "Product deleted successfully." + Color.RESET);
         System.out.println();
-        MeasureMain.subMenu();
+        Main.subMenu();
     }
 
     // --------HELPERS--------
