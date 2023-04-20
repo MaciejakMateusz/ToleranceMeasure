@@ -1,0 +1,22 @@
+Measurement session date: 2023-04-20 17:16:18
+
+PRODUCT NAME = TestScanner2
+PRODUCT LENGTH = 60.0mm
+POSITIVE TOLERANCE = 0.0mm
+NEGATIVE TOLERANCE = -0.6mm
+
+All measurements(mm): [60, 60, 60, 60, 60]
+Amount measured: 5 piece(s)
+Average of all measurements: 60.00mm
+
+TOLERANCE DATA
+Outside tolerance: 0 piece(s)
+Inside tolerance: 5 piece(s)
+Bigger than 60.0mm: 0 piece(s)
+Smaller than 59.4mm: 0 piece(s)
+
+Biggest measurement: 60mm
+Smallest measurement: 60mm
+Difference between the smallest and the biggest measurement: 0mm
+
+Measurements sorted ascending: [60, 60, 60, 60, 60]

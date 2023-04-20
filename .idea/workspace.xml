@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Updated README">
-      <change afterPath="$PROJECT_DIR$/Measurements/Mati/Mati_2023-04-19 14:09:26" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/measure/Messages.java" afterDir="false" />
+    <list default="true" id="6bb7f2ab-11d4-4075-a687-b724c8092e1e" name="Changes" comment="Changes:&#10;- renamed class MeasureMain to Main&#10;- refactored variables to more readable&#10;- created new class Messages&#10;- moved prints from Main.mainProgram to methods in Messages class to simplify code">
+      <change afterPath="$PROJECT_DIR$/Measurements/TestScanner2/TestScanner2_2023-04-20 17:16:18" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/measure/MeasureMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/measure/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/measure/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/measure/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +85,7 @@
       <recent name="measure" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Create">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Create" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="measure.Create" />
       <module name="ToleranceMeasure" />
@@ -169,9 +166,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Create" />
         <item itemvalue="Application.FileManager" />
         <item itemvalue="Application.ProductDao" />
-        <item itemvalue="Application.Create" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +225,7 @@
       <workItem from="1681906101503" duration="133000" />
       <workItem from="1681930474632" duration="42000" />
       <workItem from="1681930528455" duration="2194000" />
-      <workItem from="1681933198587" duration="23000" />
+      <workItem from="1681933198587" duration="2782000" />
     </task>
     <task id="LOCAL-00001" summary="Commit with finished console version 1.0">
       <created>1677934896704</created>
@@ -313,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681421988845</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Changes:&#10;- renamed class MeasureMain to Main&#10;- refactored variables to more readable&#10;- created new class Messages&#10;- moved prints from Main.mainProgram to methods in Messages class to simplify code">
+      <created>1681933434745</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681933434745</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,6 +360,7 @@
     <MESSAGE value="Simplified and refactored code, moved and merged method such as:&#10;- refactored files structure&#10;- cleaned up trash files&#10;- refactored 'PRODUCT' variable to 'product' as it is no longer final" />
     <MESSAGE value="Renamed list: 'allMeasures' to 'measurementsList'" />
     <MESSAGE value="Updated README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated README" />
+    <MESSAGE value="Changes:&#10;- renamed class MeasureMain to Main&#10;- refactored variables to more readable&#10;- created new class Messages&#10;- moved prints from Main.mainProgram to methods in Messages class to simplify code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes:&#10;- renamed class MeasureMain to Main&#10;- refactored variables to more readable&#10;- created new class Messages&#10;- moved prints from Main.mainProgram to methods in Messages class to simplify code" />
   </component>
 </project>

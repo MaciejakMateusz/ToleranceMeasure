@@ -85,7 +85,9 @@ public class ProductDao extends Queries {
                     BigDecimal length = rs.getBigDecimal("length");
                     BigDecimal posTolerance = rs.getBigDecimal("posTolerance");
                     BigDecimal negTolerance = rs.getBigDecimal("negTolerance");
-                    StringBuilder sb = new StringBuilder();
+
+                    StringBuilder sb;
+                    sb = new StringBuilder();
                     sb.append(Color.BLUE + "Product ID: " + Color.RESET)
                             .append(id)
                             .append(Color.BLUE + " Name: " + Color.RESET)
@@ -271,14 +273,18 @@ public class ProductDao extends Queries {
         try (Connection conn = DbUtil.getConnection(DATABASE);
              PreparedStatement prepStmt = conn.prepareStatement(DELETE_QUERY)) {
             prepStmt.setInt(1, productID);
-            prepStmt.executeUpdate();
+            int statementCheck = prepStmt.executeUpdate();
+            if (statementCheck == 0) {
+                System.out.println(Color.RED + "No product with given ID found." + Color.RESET + "\n");
+                sleep(1000);
+                Main.subMenu();
+            }
         } catch (SQLException e) {
-            System.out.println(Color.RED + "No product with given ID found" + Color.RESET);
-            sleep(1000);
-            Main.mainMenu();
+            e.printStackTrace();
+            Main.subMenu();
         }
-        System.out.println(Color.GREEN_BOLD + "Product deleted successfully." + Color.RESET);
-        System.out.println();
+        System.out.println(Color.GREEN_BOLD + "Product deleted successfully." + Color.RESET + "\n");
+        sleep(1000);
         Main.subMenu();
     }
 
@@ -288,7 +294,8 @@ public class ProductDao extends Queries {
 
         Scanner scanner = new Scanner(System.in);
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb;
+        sb = new StringBuilder();
         sb.append(message)
                 .append("(")
                 .append(Color.GREEN)
